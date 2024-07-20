@@ -2,10 +2,10 @@ import React, { useState, useContext, useEffect, useRef } from "react";
 import trajectory from "./photos/trajectory.png";
 import trajectoryy from "./photos/trajectoryy.png";
 import undo from "./photos/undo.png";
-import { ThemeContext } from "D:/starx91/ground_control_system/flight_plan/vite-project/src/context/ThemeContext.jsx";
+import { ThemeContext } from "../../context/ThemeContext";
 import { useGoogleLogout } from 'react-google-login';
 import { useNavigate } from 'react-router-dom';
-import { ProfileContext } from 'D:/starx91/ground_control_system/flight_plan/vite-project/src/context/ProfileContext.jsx';
+import { ProfileContext } from '../../context/ProfileContext';
 
 const options = [
   { label: "Satellite Mode", value: 1 },

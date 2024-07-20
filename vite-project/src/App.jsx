@@ -9,6 +9,8 @@ import { ThemeProvider } from './context/ThemeContext';
 import Map from "./components/Map/Map";
 import Profile from './components/Profile/Profile';
 import { ProfileContext } from './context/ProfileContext';
+import ResetPassword from './components/Forgot-password/ResetPassword';
+import ForgotPassword from './components/Forgot-password/ForgotPassword';
 
 const clientId = "261778488059-r3p7jn1uctichj37qi3kq21j1fghclns.apps.googleusercontent.com";
 
@@ -37,6 +39,8 @@ const App = () => {
             <Route path="/" element={<Register />} />
             <Route path="/login" element={<Login />} />
             <Route path="/dashboard" element={<Dashboard />} />
+            <Route path="/reset-password" element={<ResetPassword />} />
+            <Route path="/forgot-password" element={<ForgotPassword />} />
           </Routes>
         </Router>
       </ProfileContext.Provider>

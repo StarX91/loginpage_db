@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { ProfileContext } from 'D:/starx91/ground_control_system/flight_plan/vite-project/src/context/ProfileContext.jsx';
+import { ProfileContext } from '../../context/ProfileContext';
 
 const Profile = () => {
   const { profileImg } = useContext(ProfileContext);

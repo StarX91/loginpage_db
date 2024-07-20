@@ -9,7 +9,7 @@ import googleIcon from '../assets/google.png';
 import bck from "../assets/bck.jpg";
 import { useGoogleLogin } from 'react-google-login';
 import starx91 from '../assets/starx91.png';
-import { ProfileContext } from 'D:/starx91/ground_control_system/flight_plan/vite-project/src/context/ProfileContext.jsx';
+import { ProfileContext } from '../../context/ProfileContext.jsx';
 import { supabase } from '../../supabaseclient'; 
 import bcrypt from 'bcryptjs'; // Import bcryptjs for password hashing
 

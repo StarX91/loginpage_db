@@ -8,7 +8,7 @@ import appleIcon from '../assets/apple.png';
 import googleIcon from '../assets/google.png';
 import bck from "../assets/bck.jpg";
 import starx91 from '../assets/starx91.png';
-import { ProfileContext } from 'D:/starx91/ground_control_system/flight_plan/vite-project/src/context/ProfileContext.jsx';
+import { ProfileContext } from '../../context/ProfileContext.jsx';
 import { supabase } from '../../supabaseclient';
 
 const clientId = "261778488059-r3p7jn1uctichj37qi3kq21j1fghclns.apps.googleusercontent.com";
@@ -42,6 +42,10 @@ const Login = () => {
       console.error('Error inserting Google user email:', error);
     }
   };
+
+  const handler=()=>{
+    navigate('/forgot-password');
+  }
   
 
   const onFailure = (res) => {
@@ -115,7 +119,7 @@ const Login = () => {
                       <input type='checkbox' className='px-2 py-2 bg-green-300' />
                       <h1 className='text-zinc-500'>Remember me.</h1>
                     </div>
-                    <button className='text-white text-sm'>Forgot Password?</button>
+                    <button onClick={handler} className='text-white text-sm'>Forgot Password?</button>
                   </div>
                   <button type="submit" className='bg-white text-black rounded-md h-10 gap-34 font-bold hover:bg-zinc-200 border-solid border-2 hover:border-zinc-700'>Login</button>
                 </div>

@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { ThemeContext } from "D:/starx91/ground_control_system/flight_plan/vite-project/src/context/ThemeContext.jsx";
+import { ThemeContext } from "../../context/ThemeContext";
 import Livelocation from "./Livelocation";
 import PreReq from "./PreReq";
 import Waypoints from "./Waypoints";
