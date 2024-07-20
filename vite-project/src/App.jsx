@@ -11,6 +11,7 @@ import Profile from './components/Profile/Profile';
 import { ProfileContext } from './context/ProfileContext';
 import ResetPassword from './components/Forgot-password/ResetPassword';
 import ForgotPassword from './components/Forgot-password/ForgotPassword';
+import EditProfile from './components/Navbar/EditProfile';
 
 const clientId = "261778488059-r3p7jn1uctichj37qi3kq21j1fghclns.apps.googleusercontent.com";
 
@@ -41,6 +42,8 @@ const App = () => {
             <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/reset-password" element={<ResetPassword />} />
             <Route path="/forgot-password" element={<ForgotPassword />} />
+            <Route path="/edit-profile" element={<EditProfile />} />
+
           </Routes>
         </Router>
       </ProfileContext.Provider>
