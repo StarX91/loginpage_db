@@ -37,7 +37,7 @@ const Login = () => {
         console.log('Google user email inserted:', data);
       }
   
-      navigate('/dashboard');
+      navigate('/services');
     } catch (error) {
       console.error('Error inserting Google user email:', error);
     }

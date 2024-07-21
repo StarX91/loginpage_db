@@ -3,9 +3,12 @@ import Navbar from './Navbar'
 import { ThemeContext } from '../../context/ThemeContext'
 import { useContext } from 'react'
 import { useNavigate } from 'react-router-dom';
+import { ProfileContext } from '../../context/ProfileContext';
 
 function EditProfile() {
   const { theme, toggleTheme } = useContext(ThemeContext);
+  const { profileImg } = useContext(ProfileContext);
+
   const navigate=useNavigate();
   const back=()=>{
     navigate('/dashboard')
@@ -22,11 +25,12 @@ function EditProfile() {
         <div className='h-[calc(100%-48px)] w-full p-4 flex-col  '>
             <div className='flex justify-center mb-2'>
                 <button 
-                className={`p-8 rounded-full 
-                card ${theme === "Dark"
-                ? " transition bg-neutral-900 hover:bg-neutral-800 duration-300"
-                : " transition bg-neutral-400 hover:bg-neutral-500 duration-300 "
-                }`}></button>
+                >{profileImg ? (
+                <img src={profileImg} className="w-24 h-24 rounded-full  "/>): (<div className={`p-8 rounded-full
+                    card ${theme === "Dark"
+                    ? " transition bg-red-900 hover:bg-neutral-800 duration-300"
+                    : " transition bg-neutral-400 hover:bg-neutral-500 duration-300 "
+                    }`}/>)}</button>
             </div>
             <div className='flex justify-center'>
                 <button 

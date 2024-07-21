@@ -39,7 +39,7 @@ const Register = () => {
       console.log('Google user email inserted:', data);
     }
 
-    navigate('/dashboard');
+    navigate('/services');
   };
 
   const onFailure = (res) => {
@@ -72,14 +72,14 @@ const Register = () => {
       alert('Error inserting data');
     } else {
       console.log('Data inserted:', data);
-      navigate('/dashboard');
+      navigate('/services');
     }
     setSubmitting(false);
   };
   
 
   return (
-    <div className='container-lg bg-black w-full'>
+    <div className=' bg-black w-full max-h-full min-h-screen'>
       <Formik
         initialValues={{ username: '', password: '', email: '' }}
         validationSchema={Yup.object({
@@ -96,12 +96,12 @@ const Register = () => {
         onSubmit={handleSubmit}
       >
         {({ isSubmitting }) => (
-          <div className='bg-black min-[320px]:h-full sm:w-full sm:h-screen lg:h-screen lg:w-full'>
+          <div className='bg-black min-[320px]:h-full sm:w-full sm:h-screen lg:h-full lg:w-full'>
             <div className='flex justify-center content-center pt-4 '>
               <img src={starx91} className='w-28 h-8 px-5 bg-white rounded-full'/>
             </div>
-            <div className='container flex max-w-screen min-[320px]:flex-wrap-reverse min-[320px]:place-content-center md:flex-wrap-reverse lg:flex-nowrap '>
-              <div className='flex-row min-[320px]:px-12  sm:px-28 mt-10 mb-5 '>
+            <div className='  flex justify-between w-screen min-[320px]:flex-wrap-reverse min-[320px]:place-content-center md:flex-wrap-reverse lg:flex-nowrap '>
+              <div className='flex-row min-[320px]:px-12  sm:px-28 mt-10 2xl:my-48 mb-5 '>
                 <h1 className='text-white text-2xl font-bold'>Get Started.</h1>
                 <h2 className='text-white'>Fly Smarter. Start Planning.</h2>
 
@@ -154,8 +154,8 @@ const Register = () => {
                 </div>
               </div>
 
-              <div className='flex place-content-center w-7/12 p-5'>
-                <img src={bck} className='lg:w-full h-5/12'/>
+              <div className='flex  place-content-center w-7/12 2xl:w-7/12 p-5'>
+                <img src={bck} className='lg:w-full  h-5/12 2xl:h-8/12'/>
               </div>
             </div>
           </div>
