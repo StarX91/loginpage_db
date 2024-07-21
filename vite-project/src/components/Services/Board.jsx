@@ -1,6 +1,9 @@
 import React from "react";
 import Navbar from "./Navbar";
 import { Link } from "react-router-dom";
+import StarStork from "../../../src/assets/starstork.svg";
+import Starmarg from "../../../src/assets/Starmarg.svg";
+import Starexplorer from "../../../src/assets/starxexplorer.svg";
 
 const Board = () => {
   return (
@@ -96,7 +99,8 @@ const Board = () => {
             className="bg-neutral-900 px-3 py-2 w-7/12 flex justify-evenly rounded-2xl
             2xl:w-5/12">
               <div className="w-24 h-24   mt-1 mx-3">
-                <div className=" w-full h-full aspect-square rounded-full bg-neutral-800"></div>
+                {/* <div className=" w-full h-full aspect-square rounded-full bg-neutral-800"></div> */}
+                <img src={Starmarg} className="mt-4"></img>
               </div>
               <div className=" w-full">
                 <h1 className="font-bold my-1 text-neutral-500 text-xl">
@@ -123,7 +127,9 @@ const Board = () => {
             className="bg-neutral-900 px-3 py-2 w-7/12 flex justify-evenly rounded-2xl
             2xl:w-5/12">
               <div className="w-24 h-24   mt-1 mx-3">
-                <div className=" w-full h-full aspect-square rounded-full bg-neutral-800"></div>
+                {/* <div className=" w-full h-full aspect-square rounded-full bg-neutral-800"></div> */}
+                <img src={Starexplorer} className="mt-4"></img>
+
               </div>
               <div className=" w-full">
                 <h1 className="font-bold my-1 text-neutral-500 text-xl">
@@ -136,11 +142,12 @@ const Board = () => {
                 </p>
               </div>
               <div className="w-72 mx-3  h-8 py-1.5  rounded-md bg-neutral-700 mt-9 transition  hover:bg-neutral-800 duration-200   cursor-pointer">
-              <Link to="/dashboard">
+                <Link to="/dashboard">
                 <h1 className="text-sm text-center font-semibold text-neutral-400">
                   Explore Now
                 </h1>
                 </Link>
+
               </div>
             </div>
           </div>
@@ -152,7 +159,9 @@ const Board = () => {
             className="bg-neutral-900 px-3 py-2 w-7/12 flex justify-evenly rounded-2xl
             2xl:w-5/12">
               <div className="w-24 h-24 mt-1 mx-3">
-                <div className=" w-full h-full aspect-square rounded-full bg-neutral-800"></div>
+                {/* <div className=" w-full h-full aspect-square rounded-full bg-neutral-800"></div> */}
+                <img src={StarStork} className="mt-4"></img>
+
               </div>
               <div className=" w-full">
                 <h1 className="font-bold my-1 text-neutral-500 text-xl">
@@ -165,11 +174,11 @@ const Board = () => {
                 </p>
               </div>
               <div className="w-72 mx-3  h-8 py-1.5  rounded-md bg-neutral-700 mt-9 transition  hover:bg-neutral-800 duration-200   cursor-pointer">
-                {/* <Link to="/dashboard"> */}
+                <Link to="/ss/dashboard">
                   <h1 className="text-sm text-center font-semibold text-neutral-400">
                     Explore Now
                   </h1>
-                {/* </Link> */}
+                </Link>
               </div>
             </div>
           </div>

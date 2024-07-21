@@ -47,10 +47,13 @@ const Navbar = () => {
   };
 
   const { signOut } = useGoogleLogout({
+    
     clientId,
     onLogoutSuccess,
     cookiePolicy: 'single_host_origin',
+
   });
+
   const edit=()=>{
     navigate('/edit-profile')
   }

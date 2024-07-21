@@ -13,6 +13,9 @@ import ResetPassword from './components/Forgot-password/ResetPassword';
 import ForgotPassword from './components/Forgot-password/ForgotPassword';
 import EditProfile from './components/Navbar/EditProfile';
 import Board from './components/Services/Board';
+import Main from './components/StarStork/Main';
+import TMain from './components/Tasks/Tmain';
+import Dmain from './components/Detectors/Dmain';
 
 const clientId = "261778488059-r3p7jn1uctichj37qi3kq21j1fghclns.apps.googleusercontent.com";
 
@@ -41,6 +44,9 @@ const App = () => {
             <Route path="/" element={<Register />} />
             <Route path="/login" element={<Login />} />
             <Route path="/services" element={<Board />} />
+            <Route path="/ss/dashboard" element={<Main/>} />
+            <Route path="/ss/dashboard/tasks" element={<TMain/>} />
+            <Route path="/ss/dashboard/detectors" element={<Dmain/>} />
             <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/reset-password" element={<ResetPassword />} />
             <Route path="/forgot-password" element={<ForgotPassword />} />
