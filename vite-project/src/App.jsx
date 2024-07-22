@@ -12,11 +12,13 @@ import { ProfileContext } from './context/ProfileContext';
 import ResetPassword from './pages/Authentication/ForgotPassword';
 import ForgotPassword from './pages/Authentication/ResetPassword';
 import EditProfile from './pages/StareXplorer/Navbar/EditProfile';
-import Edit from './pages/StarStork/Dashboard/EditProfile'
+import Edit from './pages/StarStork/Dashboard/EditProfile';
+import Edits from './pages/Services/EditProfile';
 import Board from './pages/Services/Board';
 import Main from './pages/StarStork/Dashboard/Main';
 import TMain from './pages/StarStork/Tasks/Tmain';
 import Dmain from './pages/StarStork/Detectors/Dmain';
+import Info from './pages/Settings/Info'
 
 const clientId = "261778488059-r3p7jn1uctichj37qi3kq21j1fghclns.apps.googleusercontent.com";
 
@@ -38,6 +40,7 @@ const App = () => {
   }, []);
 
   return (
+    <div className='w-full h-full bg-black'>
     <ThemeProvider>
       <ProfileContext.Provider value={{ profileImg, setProfileImg }}>
         <Router>
@@ -45,6 +48,8 @@ const App = () => {
             <Route path="/" element={<Register />} />
             <Route path="/login" element={<Login />} />
             <Route path="/services" element={<Board />} />
+            <Route path="/services/edit-profile" element={<Edits />} />
+            <Route path="/settings" element={<Info />} />
             <Route path="/ss/dashboard" element={<Main/>} />
             <Route path="/ss/dashboard/tasks" element={<TMain/>} />
             <Route path="/ss/dashboard/detectors" element={<Dmain/>} />
@@ -53,11 +58,11 @@ const App = () => {
             <Route path="/reset-password" element={<ResetPassword />} />
             <Route path="/forgot-password" element={<ForgotPassword />} />
             <Route path="/edit-profile" element={<EditProfile />} />
-
           </Routes>
         </Router>
       </ProfileContext.Provider>
     </ThemeProvider>
+    </div>
   );
 };
 

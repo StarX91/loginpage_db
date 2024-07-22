@@ -1,70 +1,6 @@
-// import React from "react";
-// import Starx from "../assets/StarX91-Logo.svg";
-// import { MdDashboard } from "react-icons/md";
-// import { PiDroneFill } from "react-icons/pi";
-// import { SlCalender } from "react-icons/sl";
-// import { IoIosPeople } from "react-icons/io";
-// import { IoSettingsSharp } from "react-icons/io5";
-// import { IoIosAddCircle } from "react-icons/io";
-
-// const Navbar = () => {
-//   return (
-//     // <div className="flex flex-col md:flex-row justify-between bg-black w-full h-auto md:h-21 p-4">
-//     //   <div className="flex w-full md:w-36 bg-white mb-4 md:mb-0 mx-auto md:mx-0 h-12 rounded-3xl items-center justify-center">
-//     //     <img src={Starx} alt="starx logo" className="h-8 md:h-8" />
-//     //   </div>
-//     //   <div className="flex flex-wrap bg-zinc-900  w-full md:w-1/4 rounded-3xl justify-center md:justify-between">
-//     //     <button className="bg-zinc-800 w-20 h-14 ml-4  my-1 rounded-md flex flex-col items-center">
-//     //       <MdDashboard className="text-zinc-300 w-8 h-8" />
-//     //       <p className="text-zinc-300 text-[11px] font-semibold">Dashboard</p>
-//     //     </button>
-//     //     <button className="w-20 h-14 my-1 rounded-sm flex flex-col items-center">
-//     //       <IoSettingsSharp className="text-zinc-300 w-8 h-8" />
-//     //       <p className="text-zinc-300 text-[12px] font-semibold">Settings</p>
-//     //     </button>
-//     //     <button className="w-20 h-14 my-1 rounded-sm flex flex-col items-center">
-//     //       <IoIosAddCircle className="text-zinc-300 w-8 h-8" />
-//     //       <p className="text-zinc-300 text-[12px] font-semibold">Add</p>
-//     //     </button>
-//     //   </div>
-//     //   <button className="flex bg-zinc-700 w-12 my-4 md:my-0 h-12 rounded-full mx-auto md:mx-0"></button>
-//     // </div>
-
-//     <div className="h-12 bg-neutral-950 flex justify-between">
-//         <div className="pt-3 pl-2">
-//             <img src={Starx} className="px-4 bg-white rounded-full w-20 h-5 "></img>
-//         </div>
-//         <div className="flex ">
-//             <button className="w-20 h-10  my-1 rounded-sm flex flex-col items-center">
-//             <MdDashboard className="text-zinc-400 w-8 h-8" />
-//             <p className="text-zinc-400 text-[11px] font-semibold">Services</p>
-//             </button>
-//             <button className="w-20 h-10  my-1 rounded-sm flex flex-col items-center">
-//             <MdDashboard className="text-zinc-400 w-8 h-8" />
-//             <p className="text-zinc-400 text-[11px] font-semibold">Dashboard</p>
-//             </button>
-//             <button className="bg-zinc-800 w-20 h-10 my-1 rounded-sm flex flex-col items-center">
-//             <IoSettingsSharp className="text-zinc-400 w-8 h-8" />
-//             <p className="text-zinc-400 text-[12px] font-semibold">Settings</p>
-//             </button>
-//             <button className="w-20 h-10 my-2 rounded-sm flex flex-col items-center">
-//             <IoIosAddCircle className="text-zinc-400 size-20" />
-//             <p className="text-zinc-400 text-[12px] my-1 font-semibold text-center">Add</p>
-//             </button>
-//             </div>
-//         <div className="w-8 h-8 rounded-full bg-neutral-300">
-
-//         </div>
-//     </div>
-    
-//   );
-// };
-
-// export default Navbar;
-
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import Starx from "../assets/StarX91-Logo.svg";
+import Starx from "../assets/starx91.jpg";
 import { MdDashboard } from "react-icons/md";
 import { IoSettingsSharp } from "react-icons/io5";
 import { IoIosAddCircle } from "react-icons/io";
@@ -85,21 +21,29 @@ const Navbar = () => {
   return (
     <div className="h-12 bg-neutral-950 flex justify-between">
       <div className="pt-3 pl-2">
-        <img src={Starx} className="px-4 bg-white rounded-full w-20 h-5" alt="StarX91 Logo" />
+      <img src={Starx} className="px-4 w-full h-2/3 "></img>
+
       </div>
       <div className="flex">
+      <Link to='/services'>
         <button className="w-20 h-10 my-1 rounded-sm flex flex-col items-center">
           <MdDashboard className="text-zinc-400 w-8 h-8" />
           <p className="text-zinc-400 text-[11px] font-semibold">Services</p>
         </button>
-        <button className="w-20 h-10 my-1 rounded-sm flex flex-col items-center">
+        </Link>
+
+        <Link to='/ss/dashboard'>
+        <button className="bg-zinc-800 w-20 h-10 my-1 rounded-sm flex flex-col items-center">
           <MdDashboard className="text-zinc-400 w-8 h-8" />
           <p className="text-zinc-400 text-[11px] font-semibold">Dashboard</p>
         </button>
-        <button className="bg-zinc-800 w-20 h-10 my-1 rounded-sm flex flex-col items-center">
+        </Link>
+        <Link to='/settings'>
+        <button className=" w-20 h-10 my-1 rounded-sm flex flex-col items-center">
           <IoSettingsSharp className="text-zinc-400 w-8 h-8" />
           <p className="text-zinc-400 text-[12px] font-semibold">Settings</p>
         </button>
+        </Link>
         <button className="w-20 h-10 my-2 rounded-sm flex flex-col items-center">
           <IoIosAddCircle className="text-zinc-400 w-8 h-8" />
           <p className="text-zinc-400 text-[12px] my-1 font-semibold text-center">Add</p>

@@ -7,7 +7,7 @@ import { useNavigate } from 'react-router-dom';
 import appleIcon from '../../components/assets/apple.png';
 import googleIcon from '../../components/assets/google.png';
 import bck from "../../components/assets/bck.jpg";
-import starx91 from '../../components/assets/starx91.png';
+import starx91 from '../../components/assets/starx91.jpg';
 import { ProfileContext } from '../../context/ProfileContext.jsx';
 import { supabase } from '../../supabaseclient';
 
@@ -82,7 +82,7 @@ const Login = () => {
       >
         <div className='bg-black min-[320px]:h-full sm:w-full sm:h-screen lg:h-screen lg:w-full'> 
           <div className='flex justify-center content-center pt-4 '>
-            <img src={starx91} className='w-28 h-8 px-5 bg-white rounded-full'/>
+            <img src={starx91} className='w-36 h-8 px-5 '/>
           </div>   
           <div className='flex max-w-screen min-[320px] flex-wrap-reverse place-content-center md:flex-wrap-reverse lg:flex-nowrap '>
             <div className='flex-row min-[320px] px-12 sm:px-28 mt-10 mb-5'>

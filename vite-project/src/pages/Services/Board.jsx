@@ -7,14 +7,14 @@ import Starexplorer from "../../../src/assets/starxexplorer.svg";
 
 const Board = () => {
   return (
-    <>
+    <div className="bg-black h-screen">
       <Navbar />
-      <div className="flex bg-black  w-screen h-auto justify-center">
+      <div className="flex bg-black  w-full h-fit justify-center">
         <div
           className="bg-neutral-950   rounded-2xl 
           w-full  mx-4  mt-8  mb-12 p-4
-           md:mx-20 md:my-3
-          min-[1440px]:my-36
+           md:mx-18 md:mt-4 md:mb-5
+          min-[1440px]:my-36  min-[1440px]:mx-36
           "
         >
           <div
@@ -184,7 +184,7 @@ const Board = () => {
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

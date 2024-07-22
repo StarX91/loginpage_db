@@ -1,9 +1,9 @@
 import React from "react";
-import Live from "../../../components/Live";
-import Dashboard from "./Dashboard";
-import Navbar from "../../../components/Navbar";
+import Menu from "./Menu";
+import Data from "./Data";
+import Navbar from './Navbar'
 
-const Main = () => {
+const Info = () => {
   return (
     <div className="bg-black h-screen">
     
@@ -12,10 +12,10 @@ const Main = () => {
 
       <div className="bg-neutral-950 flex flex-col lg:flex-row mx-6 lg:mx-5 lg:my-5  w-full lg:w-full rounded-3xl">
         <div className="w-1/6  overflow-hidden p-4 ml-5 py-24 flex-col">
-          <Live/>
+          <Menu/>
         </div>
         <div className="w-full bg-neutral-950 lg:w-10/12 ">
-          <Dashboard />
+          <Data />
         </div>
       </div>
     </div>
@@ -23,4 +23,4 @@ const Main = () => {
   );
 };
 
-export default Main;
+export default Info;

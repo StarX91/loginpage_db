@@ -57,16 +57,16 @@ const Navbar = () => {
     //   <button className="flex bg-zinc-700 w-12 my-4 md:my-0 h-12 rounded-full mx-auto md:mx-0"></button>
     // </div>
     //-----------------------------------------------------------------------
-    <div className="h-12 bg-black flex justify-between">
-        <div className="pt-5 pl-2">
-            <img src={Starx} className="px-4 w-full h-2/3 "></img>
+    <div className="h-12 bg-neutral-950 flex justify-between">
+        <div className="pt-3 pl-2">
+            <img src={Starx} className="px-4 bg-white rounded-full w-20 h-5 "></img>
         </div>
         <div className="flex ">
             <button className="w-20 h-10  my-1 rounded-sm flex flex-col items-center">
             <MdDashboard className="text-zinc-400 w-8 h-8" />
             <p className="text-zinc-400 text-[11px] font-semibold">Dashboard</p>
             </button>
-            <button className="bg-zinc-800 w-20 h-10 my-1 rounded-sm flex flex-col items-center">
+            <button className=" w-20 h-10 my-1 rounded-sm flex flex-col items-center">
             <PiDroneFill className="text-zinc-400 w-8 h-8" />
             <p className="text-zinc-400 text-[12px] font-semibold">Drones</p>
             </button>
@@ -78,7 +78,7 @@ const Navbar = () => {
             <IoIosPeople className="text-zinc-400 w-8 h-8" />
             <p className="text-zinc-400 text-[12px] font-semibold">Teams</p>
             </button>
-            <button className="w-20 h-10 my-1 rounded-sm flex flex-col items-center">
+            <button className="bg-zinc-800 w-20 h-10 my-1 rounded-sm flex flex-col items-center">
             <IoSettingsSharp className="text-zinc-400 w-8 h-8" />
             <p className="text-zinc-400 text-[12px] font-semibold">Settings</p>
             </button>
