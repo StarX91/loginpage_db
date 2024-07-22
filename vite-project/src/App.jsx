@@ -1,21 +1,22 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { gapi } from 'gapi-script';
-import Register from "./components/Register/Register";
-import Login from "./components/Login/Login";
-import Card from "./components/Card/Card";
-import Navbar from "./components/Navbar/Navbar";
+import Register from "./pages/Authentication/Register";
+import Login from "./pages/Authentication/Login";
+import Card from "./pages/StareXplorer/Card/Card";
+import Navbar from "./pages/StareXplorer/Navbar/Navbar";
 import { ThemeProvider } from './context/ThemeContext';
-import Map from "./components/Map/Map";
-import Profile from './components/Profile/Profile';
+import Map from "./pages/StareXplorer/Map/Map";
+// import Profile from './components/Profile/Profile';
 import { ProfileContext } from './context/ProfileContext';
-import ResetPassword from './components/Forgot-password/ResetPassword';
-import ForgotPassword from './components/Forgot-password/ForgotPassword';
-import EditProfile from './components/Navbar/EditProfile';
-import Board from './components/Services/Board';
-import Main from './components/StarStork/Main';
-import TMain from './components/Tasks/Tmain';
-import Dmain from './components/Detectors/Dmain';
+import ResetPassword from './pages/Authentication/ForgotPassword';
+import ForgotPassword from './pages/Authentication/ResetPassword';
+import EditProfile from './pages/StareXplorer/Navbar/EditProfile';
+import Edit from './pages/StarStork/Dashboard/EditProfile'
+import Board from './pages/Services/Board';
+import Main from './pages/StarStork/Dashboard/Main';
+import TMain from './pages/StarStork/Tasks/Tmain';
+import Dmain from './pages/StarStork/Detectors/Dmain';
 
 const clientId = "261778488059-r3p7jn1uctichj37qi3kq21j1fghclns.apps.googleusercontent.com";
 
@@ -47,6 +48,7 @@ const App = () => {
             <Route path="/ss/dashboard" element={<Main/>} />
             <Route path="/ss/dashboard/tasks" element={<TMain/>} />
             <Route path="/ss/dashboard/detectors" element={<Dmain/>} />
+            <Route path="/ss/edit-profile" element={<Edit/>} />
             <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/reset-password" element={<ResetPassword />} />
             <Route path="/forgot-password" element={<ForgotPassword />} />
