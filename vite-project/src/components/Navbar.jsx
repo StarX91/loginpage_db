@@ -18,6 +18,9 @@ const Navbar = () => {
     navigate("/ss/edit-profile");
   };
 
+  const handleSettings = () => {
+    navigate("/settings");
+  };
   return (
     <div className="h-12 bg-neutral-950 flex justify-between">
       <div className="pt-3 pl-2">
@@ -39,7 +42,9 @@ const Navbar = () => {
         </button>
         </Link>
         <Link to='/settings'>
-        <button className=" w-20 h-10 my-1 rounded-sm flex flex-col items-center">
+        <button
+        onClick={handleSettings} 
+        className=" w-20 h-10 my-1 rounded-sm flex flex-col items-center">
           <IoSettingsSharp className="text-zinc-400 w-8 h-8" />
           <p className="text-zinc-400 text-[12px] font-semibold">Settings</p>
         </button>
@@ -63,6 +68,12 @@ const Navbar = () => {
               className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 w-full text-left"
             >
               Edit Profile
+            </button>
+            <button
+              onClick={handleSettings}
+              className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 w-full text-left"
+            >
+              Settings
             </button>
             <button
               onClick={handleLogout}

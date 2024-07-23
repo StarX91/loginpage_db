@@ -3,27 +3,27 @@ import { FaUser, FaRegCreditCard, FaShieldAlt, FaKey } from "react-icons/fa";
 
 const Menu = () => {
   return (
-    <div className="bg-zinc-800 text-white w-full lg:w-1/4 h-full p-4 lg:p-8">
+    <div className="bg-neutral-900 text-white w-full rounded-xl h-full px-4 py-5">
       <div className="flex flex-col space-y-8">
-        <button className="flex items-center space-x-2 p-3 bg-zinc-700 border-2 border-zinc-400 rounded-md font-semibold">
+        <button className="flex items-center space-x-4 px-5 py-2 bg-neutral-800 text-neutral-500  rounded-md font-semibold">
           <FaUser />
-          <span>Profile</span>
+          <span className="text-neutral-500 font-semibold text-sm">Profile</span>
         </button>
-        <button className="flex items-center space-x-2 p-3 bg-zinc-700 border-2 border-zinc-400 rounded-md font-semibold">
+        <button className="flex items-center space-x-4 px-5 py-2 border-2 border-solid border-neutral-700 text-neutral-500  rounded-md font-semibold">
           <FaRegCreditCard />
-          <span>Subscriptions</span>
+          <span className="text-neutral-500 font-semibold text-sm">Subscriptions</span>
         </button>
-        <button className="flex items-center space-x-2 p-3 bg-zinc-700 border-2 border-zinc-400 rounded-md font-semibold">
+        <button className="flex items-center space-x-4 px-5 py-2 border-2 border-solid border-neutral-700 text-neutral-500  rounded-md font-semibold">
           <FaRegCreditCard />
-          <span>Invoices</span>
+          <span className="text-neutral-500 font-semibold text-sm ">Invoices</span>
         </button>
-        <button className="flex items-center space-x-2 p-3 bg-zinc-700 border-2 border-zinc-400 rounded-md font-semibold">
+        <button className="flex items-center space-x-4 px-5 py-2 border-2 border-solid border-neutral-700 text-neutral-500  rounded-md font-semibold">
           <FaShieldAlt />
-          <span>Security</span>
+          <span className="text-neutral-500 font-semibold text-sm ">Security</span>
         </button>
-        <button className="flex items-center space-x-2 p-3 bg-zinc-700 border-2 border-zinc-400 rounded-md font-semibold">
+        <button className="flex items-center space-x-4 px-5 py-2 border-2 border-solid border-neutral-700 text-neutral-500  rounded-md font-semibold">
           <FaKey />
-          <span>API keys</span>
+          <span className="text-neutral-500 font-semibold text-sm ">API keys</span>
         </button>
       </div>
     </div>

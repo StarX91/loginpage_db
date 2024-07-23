@@ -20,6 +20,14 @@ const Navbar = () => {
   const handleEditProfile = () => {
     navigate("/services/edit-profile");
   };
+  const handleSettings = () => {
+    navigate("/settings");
+  };
+
+  const handleDashboard = () => {
+    navigate("/services");
+  };
+  
   return (
     //---------------------------------------------------
     // <div className="flex flex-col md:flex-row justify-between bg-black w-full  md:h-16 p-4">
@@ -59,10 +67,12 @@ const Navbar = () => {
     //-----------------------------------------------------------------------
     <div className="h-12 bg-neutral-950 flex justify-between">
         <div className="pt-3 pl-2">
-            <img src={Starx} className="px-4 bg-white rounded-full w-20 h-5 "></img>
+            <img src={Starx} className=" w-20 h-2/3 "></img>
         </div>
         <div className="flex ">
-            <button className="w-20 h-10  my-1 rounded-sm flex flex-col items-center">
+            <button
+            onClick={handleDashboard} 
+            className="w-20 h-10  my-1 rounded-sm flex flex-col items-center">
             <MdDashboard className="text-zinc-400 w-8 h-8" />
             <p className="text-zinc-400 text-[11px] font-semibold">Dashboard</p>
             </button>
@@ -100,6 +110,12 @@ const Navbar = () => {
               className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 w-full text-left"
             >
               Edit Profile
+            </button>
+            <button
+              onClick={handleSettings}
+              className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 w-full text-left"
+            >
+              Settings
             </button>
             <button
               onClick={handleLogout}
