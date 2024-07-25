@@ -79,7 +79,7 @@ const Register = () => {
   
 
   return (
-    <div className=' bg-black w-full max-h-full min-h-screen'>
+    <div className='bg-black  h-full sm:w-screen sm:h-screen   lg:h-screen lg:w-screen'>
       <Formik
         initialValues={{ username: '', password: '', email: '' }}
         validationSchema={Yup.object({
@@ -96,46 +96,55 @@ const Register = () => {
         onSubmit={handleSubmit}
       >
         {({ isSubmitting }) => (
-          <div className='bg-black min-[320px]:h-full sm:w-full sm:h-screen lg:h-full lg:w-full'>
+          // <div className='bg-black min-[320px]:h-full sm:w-full sm:h-screen lg:h-full lg:w-full'>
+        <div className='bg-black min-[320px]:h-full sm:w-full sm:h-fit lg:h-max  md:h-fit lg:w-full'> 
+
             <div className='flex justify-center content-center pt-4 '>
             <img src={starx91} className='w-36 h-8 px-5 '/>
 
             </div>
             <div className='  flex justify-between w-screen min-[320px]:flex-wrap-reverse min-[320px]:place-content-center md:flex-wrap-reverse lg:flex-nowrap '>
-              <div className='flex-row min-[320px]:px-12  sm:px-28 mt-10 2xl:my-48 mb-5 '>
+              <div className='flex-row min-[320px]:px-12 w-1/3 sm:px-28 mt-10 2xl:my-44 mb-5 '>
                 <h1 className='text-white text-2xl font-bold'>Get Started.</h1>
                 <h2 className='text-white'>Fly Smarter. Start Planning.</h2>
 
                 <button
-                  className='flex min-[320px]:px-12 py-2 justify-center rounded-lg my-3 min-[320px]:h-11 md:w-48 lg:w-72 border-solid border-2 border-zinc-800 hover:bg-zinc-900 hover:text-white gap-2'
-                  onClick={signIn}
-                >
-                  <div className='flex justify-center gap-2'>
-                    <img src={googleIcon} alt="Google Icon" className='w-1/12 h-1/12 py-1'/>
-                    <h1 className='gap-y-30 text-zinc-400 text-sm'>Login with Google</h1>
-                  </div>
-                </button>
+                className='flex w-72 px-12 py-2 lg:px-12 lg:py-2 md:py-1 md:px-8 justify-center rounded-lg my-3 min-[320px] h-11 md:w-72 lg:w-72 border-solid border-2 border-zinc-800 hover:bg-zinc-900 hover:text-white gap-2'
+                onClick={signIn}
+              >
+                <div className='flex justify-center gap-2'>
+                  <img src={googleIcon} alt="Google Icon" className='size-7 sm:size-8 lg:size-6 py-1 px-1 lg:px-1 md:px-1 md:size-8'/>
+                  <h1 className='gap-y-30 md:py-2 lg:py-0 text-zinc-400 lg:text-sm md:text-xs'>Login with Google</h1>
+                </div>
+              </button>
 
-                <button className='flex min-[320px]:px-12 py-2  justify-center rounded-lg my-3 min-[320px]:h-11 md:w-48 lg:w-72 border-solid border-2 border-zinc-800  hover:bg-zinc-900 hover:text-white gap-2'>
-                  <div className='flex justify-center gap-2'>
-                    <img src={appleIcon} alt="Apple Icon" className='w-1/12 h-1/12 py-1'/>
-                    <h1 className='gap-y-30 text-zinc-400 text-sm'>Login with Apple</h1>
-                  </div>
-                </button>
+              <button
+                className='flex justify-center rounded-lg
+                border-solid border-2 border-zinc-800 hover:bg-zinc-900 hover:text-white 
+                px-12 w-72 py-2 my-3 h-11 gap-2
+                md:py-1 md:px-8 md:w-72
+                lg:px-12 lg:py-2 lg:w-72 '
+                // onClick={signIn}
+              >
+                <div className='flex justify-center gap-2'>
+                    <img src={appleIcon} alt="Apple Icon" className='size-7 sm:size-8 lg:size-6 py-1 px-1 lg:px-1 md:px-1 md:size-8'/>
+                  <h1 className='gap-y-30 md:py-2 lg:py-0 text-zinc-400 lg:text-sm md:text-xs'>Login with Apple</h1>
+                </div>
+              </button>
 
                 <hr className='h-px bg-gray-800 my-2'></hr>
                 <Form>
                   <div className='flex flex-col gap-y-2  text-zinc-400'>
                     <label htmlFor="username">Your Username</label>
-                    <Field name="username" type="text" placeholder="xyz" className=' min-[320px]:h-9 md:w-48 lg:w-72 bg-zinc-900 rounded-lg  p-3 ' />
+                    <Field name="username" type="text" placeholder="xyz" className=' min-[320px]:h-9 md:w-72 lg:w-72 bg-zinc-900 rounded-lg  p-3 ' />
                     <ErrorMessage name="username"/>
 
                     <label htmlFor="email">Your Email</label>
-                    <Field name="email" type="email" placeholder="xyz@domain.com" className='  min-[320px]:h-9 md:w-48 lg:w-72 bg-zinc-900 rounded-lg p-3 '/>
+                    <Field name="email" type="email" placeholder="xyz@domain.com" className='  min-[320px]:h-9 md:w-72 lg:w-72 bg-zinc-900 rounded-lg p-3 '/>
                     <ErrorMessage name="email" />
 
                     <label htmlFor="password">Password</label>
-                    <Field name="password" type="password" placeholder="At least 8 characters" className='  min-[320px]:h-9 md:w-48 lg:w-72 bg-zinc-900 rounded-lg p-3' />
+                    <Field name="password" type="password" placeholder="At least 8 characters" className='  min-[320px]:h-9 md:w-72 lg:w-72 bg-zinc-900 rounded-lg p-3' />
                     <ErrorMessage name="password" />
 
                     <div className='flex gap-1'>
@@ -143,7 +152,7 @@ const Register = () => {
                       <h1 className='text-zinc-500 text-sm'>Remember me.</h1>
                     </div>
 
-                    <button type="submit" className='bg-white text-black rounded-md h-10 gap-34 font-bold hover:bg-zinc-200 border-solid border-2 hover:border-zinc-700' disabled={isSubmitting}>
+                    <button type="submit" className='bg-white text-black rounded-md h-10 w-72 gap-34 font-bold hover:bg-zinc-200 border-solid border-2 hover:border-zinc-700' disabled={isSubmitting}>
                       Sign Up
                     </button>
                   </div>
@@ -155,9 +164,10 @@ const Register = () => {
                 </div>
               </div>
 
-              <div className='flex  place-content-center w-7/12 2xl:w-7/12 p-5'>
-                <img src={bck} className='lg:w-full  h-5/12 2xl:h-8/12'/>
-              </div>
+              <div className='container-lg flex place-content-center'>
+              <img src={bck} className='size-5/6'/>
+              {/* <img src={overlay} className='size-5/6'/> */}
+            </div>
             </div>
           </div>
         )}
@@ -167,3 +177,9 @@ const Register = () => {
 };
 
 export default Register;
+
+
+
+// ------------------------------
+
+

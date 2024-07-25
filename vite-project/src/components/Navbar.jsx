@@ -25,7 +25,7 @@ const Navbar = () => {
     navigate("/services");
   };
   return (
-    <div className="h-12 bg-neutral-950 flex justify-between">
+    <div className="h-12 bg-black flex justify-between">
       <div className="pt-3 pl-2">
       <img src={Starx} className="px-4 w-full h-2/3 "/>
 

@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import axios from "axios";
-// import PhoneInput from "react-phone-number-input";
-// import "react-phone-number-input/style.css";
+import PhoneInput from "react-phone-number-input";
+import "react-phone-number-input/style.css";
 import bck from "../../components/assets/bck.jpg";
+import starx91 from '../../components/assets/starx91.jpg';
+
 
 const ForgotPassPage = () => {
   const [email, setEmail] = useState("");
@@ -61,7 +63,10 @@ const ForgotPassPage = () => {
   };
 
   return (
-    <div className="container-lg  w-full min[320px]:h-screen">
+    <div className='bg-black  h-full sm:w-screen sm:h-screen   lg:h-screen lg:w-screen'>
+      <div className='flex justify-center content-center pt-4 '>
+            <img src={starx91} className='w-36 h-8 px-5 '/>
+          </div>  
       <div className="flex max-w-screen min-[320px]:flex-wrap-reverse min-[320px]:place-content-center md:flex-wrap-reverse lg:flex-nowrap ">
         <div className="flex-row min-[320px]:px-12  sm:px-28 md:mt-24 min[320px]:mt-10 mb-5">
           <h1 className="text-white text-2xl font-bold">Forgot Password?</h1>
@@ -95,14 +100,14 @@ const ForgotPassPage = () => {
             <div className="flex flex-col gap-y-2  text-zinc-400">
               <label htmlFor="phone">
                 Your Phone Number
-                {/* <PhoneInput
+                <PhoneInput
                   type="text"
                   country={"ind"}
                   value={phone}
                   onChange={handlePhoneChange}
                   inputProps={{ required: true }}
                   className="  min-[320px]:h-9 md:w-48 lg:w-72 bg-zinc-900 rounded-lg p-3 "
-                /> */}
+                />
               </label>
               {!valid && <p>Please enter a valid 10-digit phone number</p>}
               <button

@@ -7,6 +7,7 @@ import { useNavigate } from 'react-router-dom';
 import appleIcon from '../../components/assets/apple.png';
 import googleIcon from '../../components/assets/google.png';
 import bck from "../../components/assets/bck.jpg";
+// import overlay from "../../components/assets/overlay.jpg";
 import starx91 from '../../components/assets/starx91.jpg';
 import { ProfileContext } from '../../context/ProfileContext.jsx';
 import { supabase } from '../../supabaseclient';
@@ -61,7 +62,7 @@ const Login = () => {
   });
 
   return (
-    <div className='bg-black min-[320px] h-full sm:w-screen sm:h-screen lg:h-full lg:w-screen'>
+    <div className='bg-black  h-full sm:w-screen sm:h-screen   lg:h-screen lg:w-screen'>
       <Formik
         initialValues={{ username: '', password: '' }}
         validationSchema={Yup.object({
@@ -81,39 +82,53 @@ const Login = () => {
             });
         }}
       >
-        <div className='bg-black min-[320px]:h-full sm:w-full sm:h-screen lg:h-screen lg:w-full'> 
+        <div className='bg-black min-[320px]:h-full sm:w-full sm:h-fit lg:h-max  md:h-fit lg:w-full'> 
           <div className='flex justify-center content-center pt-4 '>
             <img src={starx91} className='w-36 h-8 px-5 '/>
           </div>   
           <div className='flex max-w-screen min-[320px] flex-wrap-reverse place-content-center md:flex-wrap-reverse lg:flex-nowrap '>
-            <div className='flex-row min-[320px] px-12 sm:px-28 mt-10 mb-5'>
+            <div className='flex-row min-[320px] px-12 sm:px-28 mt-10 2xl:mt-44 mb-5'>
               <h1 className='text-white text-2xl font-bold'>Welcome Back!</h1>
               <h2 className='text-white'>Your flights await. Log in and take off.</h2>
 
               <button
-                className='flex min-[320px] px-12 py-2 justify-center rounded-lg my-3 min-[320px] h-11 md:w-48 lg:w-72 border-solid border-2 border-zinc-800 hover:bg-zinc-900 hover:text-white gap-2'
+                className='flex w-72 px-12 py-2 lg:px-12 lg:py-2 md:py-1 md:px-8 justify-center rounded-lg my-3 min-[320px] h-11 md:w-72 lg:w-72 border-solid border-2 border-zinc-800 hover:bg-zinc-900 hover:text-white gap-2'
                 onClick={signIn}
               >
                 <div className='flex justify-center gap-2'>
-                  <img src={googleIcon} alt="Google Icon" className='w-1/12 h-1/12 py-1'/>
-                  <h1 className='gap-y-30 text-zinc-400 text-sm'>Login with Google</h1>
+                  <img src={googleIcon} alt="Google Icon" className='size-7 sm:size-8 lg:size-6 py-1 px-1 lg:px-1 md:px-1 md:size-8'/>
+                  <h1 className='gap-y-30 md:py-2 lg:py-0 text-zinc-400 lg:text-sm md:text-xs'>Login with Google</h1>
                 </div>
               </button>
 
-              <button className='flex min-[320px] px-12 py-2 justify-center rounded-lg my-3 min-[320px] h-11 md:w-48 lg:w-72 border-solid border-2 border-zinc-800 hover:bg-zinc-900 hover:text-white gap-2'>
+              <button
+                className='flex justify-center rounded-lg
+                border-solid border-2 border-zinc-800 hover:bg-zinc-900 hover:text-white 
+                px-12 w-72 py-2 my-3 h-11 gap-2
+                md:py-1 md:px-8 md:w-72
+                lg:px-12 lg:py-2 lg:w-72 '
+                // onClick={signIn}
+              >
+                <div className='flex justify-center gap-2'>
+                    <img src={appleIcon} alt="Apple Icon" className='size-7 sm:size-8 lg:size-6 py-1 px-1 lg:px-1 md:px-1 md:size-8'/>
+                  <h1 className='gap-y-30 md:py-2 lg:py-0 text-zinc-400 lg:text-sm md:text-xs'>Login with Apple</h1>
+                </div>
+              </button>
+
+              {/* <button className='flex min-[320px] px-12 py-2 justify-center rounded-lg my-3 min-[320px] h-11 md:w-48 lg:w-72 border-solid border-2 border-zinc-800 hover:bg-zinc-900 hover:text-white gap-2'>
                 <div className='flex justify-center gap-2'>
                   <img src={appleIcon} alt="Apple Icon" className='w-1/12 h-1/12 py-1'/>
                   <h1 className='gap-y-30 text-zinc-400 text-sm'>Login with Apple</h1>
                 </div>
-              </button>
+              </button> */}
 
               <Form>
-                <div className='flex flex-col gap-y-2 text-zinc-400'>
+                <div className='flex flex-col gap-y-2  text-zinc-400'>
                   <label htmlFor="username">Username</label>
-                  <Field name="username" type="text" placeholder="xyz" className='min-[320px] h-9 md:w-48 lg:w-72 bg-zinc-900 rounded-lg p-3' />
+                  <Field name="username" type="text" placeholder="xyz" className='min-[320px] h-9 md:w-72 lg:w-72 bg-zinc-900 rounded-lg p-3' />
                   <ErrorMessage name="username" />
                   <label htmlFor="password">Password</label>
-                  <Field name="password" type="password" placeholder="At least 8 characters" className='min-[320px] h-9 md:w-48 lg:w-72 bg-zinc-900 rounded-lg p-3' />
+                  <Field name="password" type="password" placeholder="At least 8 characters" className='min-[320px] h-9 md:w-72 lg:w-72 bg-zinc-900 rounded-lg p-3' />
                   <ErrorMessage name="password" />
                   <div className='flex justify-between'>
                     <div className='flex gap-1'>
@@ -131,8 +146,9 @@ const Login = () => {
                 </div>
             </div>
 
-            <div className='flex place-content-center'>
-              <img src={bck} className='w-fit h-fit'/>
+            <div className='container-lg flex place-content-center'>
+              <img src={bck} className='size-5/6'/>
+              {/* <img src={overlay} className='size-5/6'/> */}
             </div>
           </div>
         </div>
