@@ -1,72 +1,103 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
-import axios from 'axios';
-import { useGoogleLogin } from 'react-google-login';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import appleIcon from '../../components/assets/apple.png';
 import googleIcon from '../../components/assets/google.png';
 import bck from "../../components/assets/bck.jpg";
 // import overlay from "../../components/assets/overlay.jpg";
 import starx91 from '../../components/assets/starx91.jpg';
 import { ProfileContext } from '../../context/ProfileContext.jsx';
-import { supabase } from '../../supabaseclient';
-import { Link } from 'react-router-dom';
-
-const clientId = "261778488059-r3p7jn1uctichj37qi3kq21j1fghclns.apps.googleusercontent.com";
+import { auth, googleProvider, appleProvider, signInWithPopup, signInWithEmailAndPassword, sendPasswordResetEmail } from './firebaseConfig.jsx'; // Adjust the import path as needed
 
 const Login = () => {
   const navigate = useNavigate();
   const { setProfileImg } = useContext(ProfileContext);
+  const [resetEmail, setResetEmail] = useState('');
+  const [isResetRequested, setIsResetRequested] = useState(false);
+  const [message, setMessage] = useState('');
 
-  const onSuccess = async (res) => {
-    console.log("LOGIN SUCCESS! Current user: ", res.profileObj);
-    const profileImgUrl = res.profileObj.imageUrl;
-    console.log("Profile Image URL: ", profileImgUrl);
-    setProfileImg(profileImgUrl);
-    const { email } = res.profileObj;
-  
+  const signInWithGoogle = async () => {
     try {
-      const { data, error } = await supabase
-        .from('login')
-        .insert([
-          { email }
-        ]);
-  
-      if (error) {
-        console.error('Error inserting Google user email:', error);
+      const result = await signInWithPopup(auth, googleProvider);
+      const user = result.user;
+      const profileImgUrl = user.photoURL;
+      setProfileImg(profileImgUrl); // Update profileImg in ProfileContext
+
+      // Navigate to services if the email is verified
+      if (user.emailVerified) {
+        navigate('/services');
       } else {
-        console.log('Google user email inserted:', data);
+        setMessage('Please verify your email before logging in.');
+        await auth.signOut(); // Sign out if email is not verified
       }
-  
-      navigate('/services');
     } catch (error) {
-      console.error('Error inserting Google user email:', error);
+      console.error("Google sign-in error:", error);
     }
   };
 
-  const handler=()=>{
-    navigate('/forgot-password');
-  }
-  
+  const handleAppleSignIn = async () => {
+    try {
+      const result = await signInWithPopup(auth, appleProvider);
+      const user = result.user;
+      const profileImgUrl = user.photoURL;
+      setProfileImg(profileImgUrl);
 
-  const onFailure = (res) => {
-    console.log("LOGIN FAILED! res: ", res);
+      // Navigate to services if the email is verified
+      if (user.emailVerified) {
+        navigate('/services');
+      } else {
+        setMessage('Please verify your email before logging in.');
+        await auth.signOut(); // Sign out if email is not verified
+      }
+    } catch (error) {
+      console.error("Apple sign-in error:", error);
+    }
   };
 
-  const { signIn } = useGoogleLogin({
-    clientId,
-    onSuccess,
-    onFailure,
-    cookiePolicy: 'single_host_origin',
-  });
+  const handleSubmit = async (values, { setSubmitting }) => {
+    const { username, password } = values;
+
+    try {
+      const userCredential = await signInWithEmailAndPassword(auth, username, password);
+      const user = userCredential.user;
+
+      // Check email verification
+      if (user.emailVerified) {
+        navigate('/services');
+      } else {
+        setMessage('Please verify your email before logging in.');
+        await auth.signOut(); // Sign out if email is not verified
+      }
+    } catch (error) {
+      console.error('Error logging in with email and password:', error);
+      alert('Login failed. Please check your email and password.');
+    } finally {
+      setSubmitting(false);
+    }
+  };
+
+  const handlePasswordReset = async () => {
+    if (resetEmail) {
+      try {
+        await sendPasswordResetEmail(auth, resetEmail);
+        alert('Password reset email sent!');
+        setIsResetRequested(false);
+      } catch (error) {
+        console.error('Error sending password reset email:', error);
+        alert('Error sending password reset email');
+      }
+    } else {
+      alert('Please enter your email address');
+    }
+  };
 
   return (
     <div className='bg-black  h-full sm:w-screen sm:h-screen   lg:h-screen lg:w-screen'>
       <Formik
         initialValues={{ username: '', password: '' }}
         validationSchema={Yup.object({
-          username: Yup.string().max(15, 'Must be 15 characters or less').required('Required'),
+          username: Yup.string().email('Invalid email address').required('Required'),
           password: Yup.string().min(6, 'Must be at least 6 characters').required('Required'),
         })}
         onSubmit={(values, { setSubmitting }) => {
@@ -144,7 +175,7 @@ const Login = () => {
                   <h1 className='text-zinc-500'>Don't have an account? </h1>
                   <Link to="/" className='text-white'>Signup</Link>
                 </div>
-            </div>
+              </div>
 
             <div className='container-lg flex place-content-center'>
               <img src={bck} className='size-5/6'/>

@@ -61,8 +61,6 @@ const App = () => {
             <Route path="/ss/settings/subscriptions" element={<Subscription/>} />
             <Route path="/ss/settings/invoices" element={<Invoices/>} />
             <Route path="/dashboard" element={<Dashboard />} />
-            <Route path="/reset-password" element={<ResetPassword />} />
-            <Route path="/forgot-password" element={<ForgotPassword />} />
             <Route path="/edit-profile" element={<EditProfile />} />
           </Routes>
         </Router>
