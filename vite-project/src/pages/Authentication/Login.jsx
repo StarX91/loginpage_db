@@ -10,6 +10,7 @@ import bck from "../../components/assets/bck.jpg";
 import starx91 from '../../components/assets/starx91.jpg';
 import { ProfileContext } from '../../context/ProfileContext.jsx';
 import { supabase } from '../../supabaseclient';
+import { Link } from 'react-router-dom';
 
 const clientId = "261778488059-r3p7jn1uctichj37qi3kq21j1fghclns.apps.googleusercontent.com";
 
@@ -124,6 +125,10 @@ const Login = () => {
                   <button type="submit" className='bg-white text-black rounded-md h-10 gap-34 font-bold hover:bg-zinc-200 border-solid border-2 hover:border-zinc-700'>Login</button>
                 </div>
               </Form>
+              <div className='flex gap-2 text-sm'>
+                  <h1 className='text-zinc-500'>Don't have an account? </h1>
+                  <Link to="/" className='text-white'>Signup</Link>
+                </div>
             </div>
 
             <div className='flex place-content-center'>

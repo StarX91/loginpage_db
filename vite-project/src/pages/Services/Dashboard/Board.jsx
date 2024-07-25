@@ -1,9 +1,9 @@
 import React from "react";
-import Navbar from "./Navbar";
+import Navbar from "../../../components/ServicesNavbar";
 import { Link } from "react-router-dom";
-import StarStork from "../../../src/assets/starstork.svg";
-import Starmarg from "../../../src/assets/Starmarg.svg";
-import Starexplorer from "../../../src/assets/starxexplorer.svg";
+import StarStork from "../../../assets/starstork.svg";
+import Starmarg from "../../../assets/Starmarg.svg";
+import Starexplorer from "../../../assets/starxexplorer.svg";
 
 const Board = () => {
   return (

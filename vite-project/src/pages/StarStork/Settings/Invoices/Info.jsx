@@ -1,7 +1,7 @@
 import React from "react";
-import Menu from "./Menu";
+import Menu from "../Menu";
 import Data from "./Data";
-import Navbar from './Navbar'
+import Navbar from '../../../../components/Navbar'
 
 const Info = () => {
   return (

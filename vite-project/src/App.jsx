@@ -13,12 +13,15 @@ import ResetPassword from './pages/Authentication/ForgotPassword';
 import ForgotPassword from './pages/Authentication/ResetPassword';
 import EditProfile from './pages/StareXplorer/Navbar/EditProfile';
 import Edit from './pages/StarStork/Dashboard/EditProfile';
-import Edits from './pages/Services/EditProfile';
-import Board from './pages/Services/Board';
+import Edits from './pages/Services/Dashboard/EditProfile';
+import Board from './pages/Services/Dashboard/Board';
 import Main from './pages/StarStork/Dashboard/Main';
 import TMain from './pages/StarStork/Tasks/Tmain';
 import Dmain from './pages/StarStork/Detectors/Dmain';
-import Info from './pages/Settings/Info'
+import Info from './pages/Services/Settings/Info';
+import InfoSS from './pages/StarStork/Settings/Profile/Info';
+import Subscription from './pages/StarStork/Settings/Subscription/Info';
+import Invoices from './pages/StarStork/Settings/Invoices/Info';
 
 const clientId = "261778488059-r3p7jn1uctichj37qi3kq21j1fghclns.apps.googleusercontent.com";
 
@@ -54,6 +57,9 @@ const App = () => {
             <Route path="/ss/dashboard/tasks" element={<TMain/>} />
             <Route path="/ss/dashboard/detectors" element={<Dmain/>} />
             <Route path="/ss/edit-profile" element={<Edit/>} />
+            <Route path="/ss/settings" element={<InfoSS/>} />
+            <Route path="/ss/settings/subscriptions" element={<Subscription/>} />
+            <Route path="/ss/settings/invoices" element={<Invoices/>} />
             <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/reset-password" element={<ResetPassword />} />
             <Route path="/forgot-password" element={<ForgotPassword />} />

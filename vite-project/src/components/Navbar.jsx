@@ -19,17 +19,22 @@ const Navbar = () => {
   };
 
   const handleSettings = () => {
-    navigate("/settings");
+    navigate("/ss/settings");
+  };
+  const handleDashboard = () => {
+    navigate("/services");
   };
   return (
     <div className="h-12 bg-neutral-950 flex justify-between">
       <div className="pt-3 pl-2">
-      <img src={Starx} className="px-4 w-full h-2/3 "></img>
+      <img src={Starx} className="px-4 w-full h-2/3 "/>
 
       </div>
       <div className="flex">
       <Link to='/services'>
-        <button className="w-20 h-10 my-1 rounded-sm flex flex-col items-center">
+        <button
+        onClick={handleDashboard} 
+        className="w-20 h-10 my-1 rounded-sm flex flex-col items-center">
           <MdDashboard className="text-zinc-400 w-8 h-8" />
           <p className="text-zinc-400 text-[11px] font-semibold">Services</p>
         </button>
@@ -41,7 +46,7 @@ const Navbar = () => {
           <p className="text-zinc-400 text-[11px] font-semibold">Dashboard</p>
         </button>
         </Link>
-        <Link to='/settings'>
+        <Link to='/ss/settings'>
         <button
         onClick={handleSettings} 
         className=" w-20 h-10 my-1 rounded-sm flex flex-col items-center">

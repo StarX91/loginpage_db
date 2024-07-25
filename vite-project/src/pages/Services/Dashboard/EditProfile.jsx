@@ -1,5 +1,5 @@
 import React from "react";
-import Navbar from "../Services/Navbar";
+import Navbar from "../../../components/ServicesNavbar";
 // import { ThemeContext } from '../../context/ThemeContext'
 import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
