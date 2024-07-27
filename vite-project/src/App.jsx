@@ -7,7 +7,6 @@ import Card from "./pages/StareXplorer/Card/Card";
 import Navbar from "./pages/StareXplorer/Navbar/Navbar";
 import { ThemeProvider } from './context/ThemeContext';
 import Map from "./pages/StareXplorer/Map/Map";
-// import Profile from './components/Profile/Profile';
 import { ProfileContext } from './context/ProfileContext';
 import ResetPassword from './pages/Authentication/ResetPassword';
 import ForgotPassword from './pages/Authentication/ForgotPassword';
@@ -44,28 +43,30 @@ const App = () => {
 
   return (
     <div className='w-full h-full bg-black'>
-    <ThemeProvider>
-      <ProfileContext.Provider value={{ profileImg, setProfileImg }}>
-        <Router>
-          <Routes>
-            <Route path="/" element={<Register />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/services" element={<Board />} />
-            <Route path="/services/edit-profile" element={<Edits />} />
-            <Route path="/settings" element={<Info />} />
-            <Route path="/ss/dashboard" element={<Main/>} />
-            <Route path="/ss/dashboard/tasks" element={<TMain/>} />
-            <Route path="/ss/dashboard/detectors" element={<Dmain/>} />
-            <Route path="/ss/edit-profile" element={<Edit/>} />
-            <Route path="/ss/settings" element={<InfoSS/>} />
-            <Route path="/ss/settings/subscriptions" element={<Subscription/>} />
-            <Route path="/ss/settings/invoices" element={<Invoices/>} />
-            <Route path="/dashboard" element={<Dashboard />} />
-            <Route path="/edit-profile" element={<EditProfile />} />
-          </Routes>
-        </Router>
-      </ProfileContext.Provider>
-    </ThemeProvider>
+      <ThemeProvider>
+        <ProfileContext.Provider value={{ profileImg, setProfileImg }}>
+          <Router>
+            <Routes>
+              <Route path="/" element={<Register />} />
+              <Route path="/login" element={<Login />} />
+              <Route path="/services" element={<Board />} />
+              <Route path="/services/edit-profile" element={<Edits />} />
+              <Route path="/settings" element={<Info />} />
+              <Route path="/ss/dashboard" element={<Main />} />
+              <Route path="/ss/dashboard/tasks" element={<TMain />} />
+              <Route path="/ss/dashboard/detectors" element={<Dmain />} />
+              <Route path="/ss/edit-profile" element={<Edit />} />
+              <Route path="/ss/settings" element={<InfoSS />} />
+              <Route path="/ss/settings/subscriptions" element={<Subscription />} />
+              <Route path="/ss/settings/invoices" element={<Invoices />} />
+              <Route path="/dashboard" element={<Dashboard />} />
+              <Route path="/edit-profile" element={<EditProfile />} />
+              <Route path="/reset-password" element={<ResetPassword />} />
+              <Route path="/forgot-password" element={<ForgotPassword />} /> {/* Added this line */}
+            </Routes>
+          </Router>
+        </ProfileContext.Provider>
+      </ThemeProvider>
     </div>
   );
 };
