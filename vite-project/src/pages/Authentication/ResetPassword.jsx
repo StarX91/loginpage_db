@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
-import { supabase } from '../../supabaseclient';
+import { confirmPasswordReset } from "firebase/auth";
+import { auth } from './firebaseConfig'; // Adjust the import path
 
 const ResetPassword = () => {
   const [password, setPassword] = useState('');
@@ -9,6 +10,14 @@ const ResetPassword = () => {
   const location = useLocation();
   const navigate = useNavigate();
 
+  useEffect(() => {
+    const queryParams = new URLSearchParams(location.search);
+    const oobCode = queryParams.get('oobCode');
+    if (!oobCode) {
+      setMessage('Invalid or missing code.');
+    }
+  }, [location]);
+
   const handleResetPassword = async (e) => {
     e.preventDefault();
     if (password !== confirmPassword) {
@@ -16,18 +25,19 @@ const ResetPassword = () => {
       return;
     }
 
-    const accessToken = new URLSearchParams(location.search).get('access_token');
-    if (!accessToken) {
-      setMessage('Invalid or missing access token.');
+    const queryParams = new URLSearchParams(location.search);
+    const oobCode = queryParams.get('oobCode');
+    if (!oobCode) {
+      setMessage('Invalid or missing code.');
       return;
     }
 
-    const { error } = await supabase.auth.api.updateUser(accessToken, { password });
-    if (error) {
-      setMessage(error.message);
-    } else {
+    try {
+      await confirmPasswordReset(auth, oobCode, password);
       setMessage('Password has been reset. You can now log in with your new password.');
       navigate('/login');
+    } catch (error) {
+      setMessage(error.message);
     }
   };
 
