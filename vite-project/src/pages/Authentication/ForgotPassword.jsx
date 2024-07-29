@@ -67,7 +67,7 @@ const ForgotPassPage = () => {
       <div className='flex justify-center content-center pt-4 '>
             <img src={starx91} className='w-36 h-8 px-5 '/>
           </div>  
-      <div className="flex max-w-screen min-[320px]:flex-wrap-reverse min-[320px]:place-content-center md:flex-wrap-reverse lg:flex-nowrap ">
+      <div className="bg-black flex max-w-screen min-[320px]:flex-wrap-reverse min-[320px]:place-content-center md:flex-wrap-reverse lg:flex-nowrap ">
         <div className="flex-row min-[320px]:px-12  sm:px-28 md:mt-24 min[320px]:mt-10 mb-5">
           <h1 className="text-white text-2xl font-bold">Forgot Password?</h1>
           <h2 className="text-white ">Check your email for reset link.</h2>
