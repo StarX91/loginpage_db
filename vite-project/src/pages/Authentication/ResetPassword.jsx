@@ -1,12 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
-import { Form, Field, ErrorMessage } from 'formik';
 import { confirmPasswordReset } from "firebase/auth";
-import { auth } from './firebaseConfig';
+import { auth } from './firebaseConfig'; // Adjust the import path
 import starx91 from '../../components/assets/starx91.jpg';
-import { Link } from 'react-router-dom';
 import bck from "../../components/assets/bck.jpg";
-
 
 const ResetPassword = () => {
   const [password, setPassword] = useState('');
@@ -98,31 +95,35 @@ const ResetPassword = () => {
                   onChange={(e) => setPassword(e.target.value)}
                   placeholder="Enter new password"
                   required 
-                  className='min-[320px] h-9 md:w-72 lg:w-72 bg-zinc-900 rounded-lg p-3' />
-                  <label htmlFor="password">Confirm Password</label>
-                  <input 
+                  className='min-[320px] h-9 md:w-72 lg:w-72 bg-zinc-900 rounded-lg p-3' 
+                />
+                <label htmlFor="confirmPassword">Confirm Password</label>
+                <input 
                   type="password"
                   value={confirmPassword}
                   onChange={(e) => setConfirmPassword(e.target.value)}
                   placeholder="Confirm new password"
                   required
-                  className='min-[320px] h-9 md:w-72 lg:w-72 bg-zinc-900 rounded-lg p-3' />
-                  <button 
+                  className='min-[320px] h-9 md:w-72 lg:w-72 bg-zinc-900 rounded-lg p-3' 
+                />
+                <button 
                   type="submit" 
-                  onSubmit={handleResetPassword}
-                  className='bg-white text-black rounded-md h-10 gap-34 font-bold hover:bg-zinc-200 border-solid border-2 hover:border-zinc-700'>Reset</button>
-                </div>
-              </form>
-              {message && 
+                  className='bg-white text-black rounded-md h-10 gap-34 font-bold hover:bg-zinc-200 border-solid border-2 hover:border-zinc-700'>
+                  Reset
+                </button>
+              </div>
+            </form>
+            {message && 
               <div className='flex gap-2 text-sm text-red-800 bg-red-950 py-1 font-semibold justify-center'>
                 {message}
-              </div>}
-            </div>
-            <div className='container-lg flex place-content-center'>
-              <img src={bck} className='size-5/6'/>
-            </div>
+              </div>
+            }
+          </div>
+          <div className='container-lg flex place-content-center'>
+            <img src={bck} className='size-5/6'/>
           </div>
         </div>
+      </div>
     </div>
   );
 };
