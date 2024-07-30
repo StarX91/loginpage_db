@@ -44,52 +44,19 @@ const ResetPassword = () => {
   };
 
   return (
-    // <div>
-    //   <h2>Reset Password</h2>
-    //   <form onSubmit={handleResetPassword}>
-    //     <input
-          // type="password"
-          // value={password}
-          // onChange={(e) => setPassword(e.target.value)}
-          // placeholder="Enter new password"
-          // required
-    //     />
-    //     <input
-    //       type="password"
-    //       value={confirmPassword}
-    //       onChange={(e) => setConfirmPassword(e.target.value)}
-    //       placeholder="Confirm new password"
-    //       required
-    //     />
-    //     <button type="submit">Reset Password</button>
-    //   </form>
-    //   {message && <p>{message}</p>}
-    // </div>
-    <div 
-    className='bg-black h-full sm:w-screen sm:h-screen lg:h-screen lg:w-screen'>
-        <div 
-        className='bg-black min-[320px]:h-full sm:w-full sm:h-fit lg:h-max md:h-fit lg:w-full'>
-          <div 
-          className='flex justify-center content-center pt-4'>
-            <img 
-            src={starx91} 
-            className='w-36 h-8 px-5'/>
-          </div>
-          <div 
-          className='flex max-w-screen min-[320px] flex-wrap-reverse place-content-center md:flex-wrap-reverse lg:flex-nowrap'>
-            <div 
-            className='flex-row min-[320px] px-12 sm:px-28 mt-24 2xl:mt-52 mb-5'>
-              <h1 
-              className='text-white text-2xl font-bold'>
-              Welcome Back!</h1>
-              <h2 
-              className='text-white mb-5'>
-              Reset your password to get flying.</h2>
-              <form>
-                <div 
-                className='flex flex-col gap-y-2 text-zinc-400 mb-4'>
-                  <label htmlFor="password">New Password</label>
-                  <input 
+    <div className='bg-black h-full sm:w-screen sm:h-screen lg:h-screen lg:w-screen'>
+      <div className='bg-black min-[320px]:h-full sm:w-full sm:h-fit lg:h-max md:h-fit lg:w-full'>
+        <div className='flex justify-center content-center pt-4'>
+          <img src={starx91} className='w-36 h-8 px-5'/>
+        </div>
+        <div className='flex max-w-screen min-[320px] flex-wrap-reverse place-content-center md:flex-wrap-reverse lg:flex-nowrap'>
+          <div className='flex-row min-[320px] px-12 sm:px-28 mt-24 2xl:mt-44 mb-5'>
+            <h1 className='text-white text-2xl font-bold'>Welcome Back!</h1>
+            <h2 className='text-white mb-5'>Reset your password to get flying.</h2>
+            <form onSubmit={handleResetPassword}>
+              <div className='flex flex-col gap-y-2 text-zinc-400 mb-4'>
+                <label htmlFor="password">New Password</label>
+                <input 
                   type="password"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
