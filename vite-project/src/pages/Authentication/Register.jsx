@@ -21,13 +21,51 @@ const Register = () => {
       const result = await signInWithPopup(auth, googleProvider);
       const user = result.user;
       const profileImgUrl = user.photoURL;
-      setProfileImg(profileImgUrl);
-      console.log('User Info: ', user);
-      navigate('/services');
+      const username = user.displayName || '';
+      
+      // Store uid in local storage
+      localStorage.setItem('uid', user.uid);
+      
+      // Check if the user already exists in Supabase
+      const { data, error } = await supabase
+        .from('profile')
+        .select('*')
+        .eq('uid', user.uid)
+        .single();
+      
+      if (error && error.code !== 'PGRST116') {
+        throw error;
+      }
+      
+      if (data) {
+        // User already exists, navigate to the services page
+        navigate('/services');
+      } else {
+        // User does not exist, insert their information
+        const now = new Date().toISOString();
+        const { error: insertError } = await supabase
+          .from('profile')
+          .insert([{
+            uid: user.uid,
+            username: username,
+            email: user.email,
+            profile_img: profileImgUrl,
+            last_login: now
+          }]);
+      
+        if (insertError) {
+          throw insertError;
+        }
+      
+        console.log('New user profile inserted into Supabase');
+        navigate('/services');
+      }
     } catch (error) {
       console.error('Error during sign-in with Google: ', error);
+      // Handle errors and provide feedback to the user
     }
   };
+  
 
   const handleAppleSignIn = async () => {
     try {

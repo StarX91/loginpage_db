@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from "react";
 import Navbar from "../../../components/ServicesNavbar";
 import { useNavigate } from "react-router-dom";
+import { supabase } from '../../../supabaseclient';
 import { IoIosArrowForward } from "react-icons/io";
+
 
 function EditProfile() {
   const navigate = useNavigate();
@@ -53,6 +55,50 @@ function EditProfile() {
     localStorage.setItem("dateOfBirth", tempDateOfBirth);
   };
 
+  const [profile, setProfile] = useState({
+    username: '',
+    dateOfBirth: '',
+    pilotLicense: '',
+    phoneNumber: '',
+    profileImg: ''
+  });
+
+  const fetchUserProfile = async () => {
+    try {
+      // Get uid from local storage
+      const uid = localStorage.getItem('uid');
+      if (!uid) {
+        throw new Error('No user UID found in local storage.');
+      }
+
+      // Fetch user profile from Supabase
+      const { data, error } = await supabase
+        .from('profile')
+        .select('*')
+        .eq('uid', uid)
+        .single();
+  
+      if (error) {
+        console.error('Error fetching user profile:', error);
+        alert('Failed to fetch user profile. Please try again later.');
+      } else {
+        setProfile({
+          username: data.username || '',
+          dateOfBirth: data.date_of_birth || '',
+          pilotLicense: data.pilot_license || '',
+          phoneNumber: data.phone_number || '',
+          profileImg: data.profile_img || ''
+        });
+      }
+    } catch (error) {
+      console.error('Error getting user profile:', error);
+    }
+  };
+
+  useEffect(() => {
+    fetchUserProfile();
+  }, []);
+
   const back = () => {
     navigate("/ss/dashboard");
   };
@@ -97,7 +143,7 @@ function EditProfile() {
               onChange={handleImageChange}
               className="hidden"
             />
-          </label>
+          </button>
         </div>
         <form>
           <div className="flex justify-center">
@@ -121,7 +167,7 @@ function EditProfile() {
                   onChange={handleDateChange}
                   max={calculateMinDate()}
                   className="px-0 text-sm font-semibold bg-transparent rounded-none text-neutral-500 placeholder-neutral-500"
-                />
+                ></input>
               </div>
               <button className="" onClick={changePhoneNumber}>
                 <div className="text-left m-1 flex border-solid border-[2px] border-neutral-800 rounded-lg text-neutral-300 hover:bg-neutral-900 hover:text-neutral-200 hover:gap-0.5">
