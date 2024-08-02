@@ -21,6 +21,10 @@ import Info from './pages/Services/Settings/Info';
 import InfoSS from './pages/StarStork/Settings/Profile/Info';
 import Subscription from './pages/StarStork/Settings/Subscription/Info';
 import Invoices from './pages/StarStork/Settings/Invoices/Info';
+import PhoneNumber from './pages/StarStork/Dashboard/ChangePhoneNumber';
+import { ProfileProvider } from './context/ProfileImageContext';
+// import VerifyOtp from './pages/StarStork/Dashboard/VerifyOtp';
+// import ErrorBoundary from './components/ErrorBoundary';
 
 const clientId = "261778488059-r3p7jn1uctichj37qi3kq21j1fghclns.apps.googleusercontent.com";
 
@@ -45,26 +49,32 @@ const App = () => {
     <div className='w-full h-full bg-black'>
       <ThemeProvider>
         <ProfileContext.Provider value={{ profileImg, setProfileImg }}>
+          <ProfileProvider>
           <Router>
-            <Routes>
-              <Route path="/" element={<Register />} />
-              <Route path="/login" element={<Login />} />
-              <Route path="/services" element={<Board />} />
-              <Route path="/services/edit-profile" element={<Edits />} />
-              <Route path="/settings" element={<Info />} />
-              <Route path="/ss/dashboard" element={<Main />} />
-              <Route path="/ss/dashboard/tasks" element={<TMain />} />
-              <Route path="/ss/dashboard/detectors" element={<Dmain />} />
-              <Route path="/ss/edit-profile" element={<Edit />} />
-              <Route path="/ss/settings" element={<InfoSS />} />
-              <Route path="/ss/settings/subscriptions" element={<Subscription />} />
-              <Route path="/ss/settings/invoices" element={<Invoices />} />
-              <Route path="/dashboard" element={<Dashboard />} />
-              <Route path="/edit-profile" element={<EditProfile />} />
-              <Route path="/reset-password" element={<ResetPassword />} />
-              <Route path="/forgot-password" element={<ForgotPassword />} /> {/* Added this line */}
-            </Routes>
+            {/* <ErrorBoundary> */}
+              <Routes>
+                <Route path="/" element={<Register />} />
+                <Route path="/login" element={<Login />} />
+                <Route path="/services" element={<Board />} />
+                <Route path="/services/edit-profile" element={<Edits />} />
+                <Route path="/settings" element={<Info />} />
+                <Route path="/ss/dashboard" element={<Main />} />
+                <Route path="/ss/dashboard/tasks" element={<TMain />} />
+                <Route path="/ss/dashboard/detectors" element={<Dmain />} />
+                <Route path="/ss/edit-profile" element={<Edit />} />
+                <Route path="/ss/settings" element={<InfoSS />} />
+                <Route path="/ss/settings/subscriptions" element={<Subscription />} />
+                <Route path="/ss/settings/invoices" element={<Invoices />} />
+                <Route path="/dashboard" element={<Dashboard />} />
+                <Route path="/edit-profile" element={<EditProfile />} />
+                <Route path="/reset-password" element={<ResetPassword />} />
+                <Route path="/forgot-password" element={<ForgotPassword />} />
+                <Route path="/change-phone-number" element={<PhoneNumber />} />
+                {/* <Route path="/verify-otp" element={<VerifyOtp />} /> */}
+              </Routes>
+            {/* </ErrorBoundary> */}
           </Router>
+          </ProfileProvider>
         </ProfileContext.Provider>
       </ThemeProvider>
     </div>

@@ -7,7 +7,7 @@ import googleIcon from '../../components/assets/google.png';
 import bck from "../../components/assets/bck.jpg";
 import starx91 from '../../components/assets/starx91.jpg';
 import { ProfileContext } from '../../context/ProfileContext.jsx';
-import { auth, googleProvider, appleProvider, signInWithPopup, signInWithEmailAndPassword } from './firebaseConfig.jsx'; // Adjust the import path as needed
+import { auth, googleProvider, appleProvider, signInWithPopup, signInWithEmailAndPassword } from '../../components/firebaseConfig.jsx'; // Adjust the import path as needed
 
 const Login = () => {
   const navigate = useNavigate();

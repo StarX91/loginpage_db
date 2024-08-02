@@ -7,7 +7,7 @@ import googleIcon from '../../components/assets/google.png';
 import bck from "../../components/assets/bck.jpg";
 import starx91 from '../../components/assets/starx91.jpg';
 import { ProfileContext } from '../../context/ProfileContext.jsx';
-import { auth, googleProvider, appleProvider, signInWithPopup, createUserWithEmailAndPassword, sendEmailVerification } from './firebaseConfig.jsx';
+import { auth, googleProvider, appleProvider, signInWithPopup, createUserWithEmailAndPassword, sendEmailVerification } from '../../components/firebaseConfig.jsx';
 import { supabase } from '../../supabaseclient.jsx'; // Import Supabase client
 import bcrypt from 'bcryptjs'; // Import bcryptjs for password hashing
 

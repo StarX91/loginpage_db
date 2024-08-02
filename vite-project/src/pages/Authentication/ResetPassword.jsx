@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { confirmPasswordReset } from "firebase/auth";
-import { auth } from './firebaseConfig'; // Adjust the import path
+import { auth } from '../../components/firebaseConfig'; // Adjust the import path
 import starx91 from '../../components/assets/starx91.jpg';
 import bck from "../../components/assets/bck.jpg";
 

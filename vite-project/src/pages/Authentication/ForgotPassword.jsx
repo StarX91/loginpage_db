@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { sendPasswordResetEmail, RecaptchaVerifier, signInWithPhoneNumber } from "firebase/auth";
-import { auth } from "./firebaseConfig"; // Adjust the import path
+import { auth } from "../../components/firebaseConfig"; // Adjust the import path
 import PhoneInput from "react-phone-number-input";
 import "react-phone-number-input/style.css";
 import bck from "../../components/assets/bck.jpg";

@@ -6,6 +6,7 @@ import { SlCalender } from "react-icons/sl";
 import { IoIosPeople, IoIosAddCircle } from "react-icons/io";
 import { IoSettingsSharp } from "react-icons/io5";
 import { useNavigate } from "react-router-dom";
+import { useProfile } from "../context/ProfileImageContext";
 
 const Navbar = () => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
@@ -13,6 +14,7 @@ const Navbar = () => {
   const [squarePosition, setSquarePosition] = useState(null); // State to track the position of the active button
   const navigate = useNavigate();
   const buttonsRef = useRef({});
+  const { image } = useProfile();
 
   useEffect(() => {
     // Move the square to the active button's position after the first render
@@ -112,11 +114,19 @@ const Navbar = () => {
         </button>
       </div>
       <div className="relative">
-        <button
-          className="w-8 h-8 rounded-full bg-zinc-400 focus:outline-none"
+      <button
+          className="w-8 h-8 rounded-full bg-black focus:outline-none"
           onClick={() => setDropdownOpen(!dropdownOpen)}
         >
-          {/* Dropdown button content */}
+          {image ? (
+            <img
+              src={image}
+              alt="Profile"
+              className="w-full h-full rounded-full object-cover"
+            />
+          ) : (
+            <span className="text-white">U</span>
+          )}
         </button>
         {dropdownOpen && (
           <div className="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-20">
