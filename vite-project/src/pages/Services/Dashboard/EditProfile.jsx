@@ -3,7 +3,8 @@ import Navbar from "../../../components/ServicesNavbar";
 import { useNavigate } from "react-router-dom";
 import { supabase } from '../../../supabaseclient';
 import { IoIosArrowForward } from "react-icons/io";
-
+import { FiEdit } from "react-icons/fi";
+import { MdOutlineDelete } from "react-icons/md";
 
 function EditProfile() {
   const navigate = useNavigate();
@@ -11,6 +12,8 @@ function EditProfile() {
   const [tempImage, setTempImage] = useState(null); // Temporary image state
   const [dateOfBirth, setDateOfBirth] = useState("");
   const [tempDateOfBirth, setTempDateOfBirth] = useState(""); // Temporary date of birth state
+  const [deleteImageFlag, setDeleteImageFlag] = useState(false); // Flag for image deletion
+  const [dropdownVisible, setDropdownVisible] = useState(false); // Dropdown visibility
 
   useEffect(() => {
     const storedImage = localStorage.getItem("profileImage");
@@ -37,6 +40,7 @@ function EditProfile() {
       reader.onload = () => {
         const result = reader.result;
         setTempImage(result); // Update temporary image state
+        setDeleteImageFlag(false); // Reset delete flag if a new image is selected
       };
       reader.readAsDataURL(file);
     }
@@ -47,12 +51,20 @@ function EditProfile() {
   };
 
   const handleSave = () => {
-    if (tempImage) {
+    if (deleteImageFlag) {
+      setImage(null);
+      localStorage.removeItem("profileImage");
+    } else if (tempImage) {
       setImage(tempImage);
       localStorage.setItem("profileImage", tempImage);
     }
     setDateOfBirth(tempDateOfBirth);
     localStorage.setItem("dateOfBirth", tempDateOfBirth);
+  };
+
+  const handleDeleteImage = () => {
+    setTempImage(null); // Clear the temporary image
+    setDeleteImageFlag(true); // Set the delete flag to true
   };
 
   const [profile, setProfile] = useState({
@@ -65,13 +77,11 @@ function EditProfile() {
 
   const fetchUserProfile = async () => {
     try {
-      // Get uid from local storage
       const uid = localStorage.getItem('uid');
       if (!uid) {
         throw new Error('No user UID found in local storage.');
       }
 
-      // Fetch user profile from Supabase
       const { data, error } = await supabase
         .from('profile')
         .select('*')
@@ -126,24 +136,32 @@ function EditProfile() {
                 <span className="text-neutral-500">No Image</span>
               </div>
             )}
-            <input
-              type="file"
-              accept="image/*"
-              onChange={handleImageChange}
-              className="absolute inset-0 opacity-0 cursor-pointer"
-            />
+            <div className="absolute bottom-0 right-0">
+              <button onClick={() => setDropdownVisible(!dropdownVisible)} className="bg-neutral-900 p-1 rounded-full shadow-md">
+                <FiEdit className="size-5 text-neutral-600" />
+              </button>
+              {dropdownVisible && (
+                <div className="absolute right-0 mt-2 w-40 bg-neutral-900 rounded-md shadow-lg z-10">
+                  <label className="block text-left text-neutral-700 font-semibold p-2 hover:bg-neutral-950 cursor-pointer">
+                    Upload Picture
+                    <input
+                      type="file"
+                      accept="image/*"
+                      onChange={handleImageChange}
+                      className="hidden"
+                    />
+                  </label>
+                  <button
+                    onClick={handleDeleteImage}
+                    className="block text-left p-2 w-full text-neutral-700 font-semibold hover:bg-neutral-950 cursor-pointer"
+                  >
+                    {/* <MdOutlineDelete className="inline ml-2 text-red-900"/> */}
+                    Delete Picture
+                  </button>
+                </div>
+              )}
+            </div>
           </div>
-        </div>
-        <div className="flex justify-center">
-          <label className="text-xs text-center font-semibold transition text-neutral-600 hover:text-neutral-500 duration-200 cursor-pointer">
-            Change Profile Picture
-            <input
-              type="file"
-              accept="image/*"
-              onChange={handleImageChange}
-              className="hidden"
-            />
-          </button>
         </div>
         <form>
           <div className="flex justify-center">
