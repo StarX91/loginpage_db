@@ -23,6 +23,10 @@ import Subscription from './pages/StarStork/Settings/Subscription/Info';
 import Invoices from './pages/StarStork/Settings/Invoices/Info';
 import PhoneNumber from './pages/StarStork/Dashboard/ChangePhoneNumber';
 import { ProfileProvider } from './context/ProfileImageContext';
+import Imageset from './pages/StarStork/AnnotationReportTask/CreateImageset';
+import Tasks from './pages/StarStork/AnnotationReportTask/CreateTasks';
+import Annotation from './pages/StarStork/AnnotationReportTask/Annotation';
+// import Imageset from './pages/StarStork/AnnotationReportTask/CreateImageset';
 // import VerifyOtp from './pages/StarStork/Dashboard/VerifyOtp';
 // import ErrorBoundary from './components/ErrorBoundary';
 
@@ -65,6 +69,9 @@ const App = () => {
                 <Route path="/ss/settings" element={<InfoSS />} />
                 <Route path="/ss/settings/subscriptions" element={<Subscription />} />
                 <Route path="/ss/settings/invoices" element={<Invoices />} />
+                <Route path="/ss/art/create-imageset" element={<Imageset />} />
+                <Route path="/ss/art/create-tasks" element={<Tasks />} />
+                <Route path="/ss/art/annotation-setup" element={<Annotation />} />
                 <Route path="/dashboard" element={<Dashboard />} />
                 <Route path="/edit-profile" element={<EditProfile />} />
                 <Route path="/reset-password" element={<ResetPassword />} />
